@@ -11,11 +11,14 @@ class SecondViewController: UIViewController {
 
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var counterLabel: UILabel!
+    @IBOutlet weak var switchLabel: UILabel!
+    @IBOutlet weak var switchOnOff: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettingsForLabel()
         initialSettingsForStepper()
+        self.switchLabel.backgroundColor = .lightGray
     }
     
     private func initialSettingsForLabel(){
@@ -37,5 +40,15 @@ class SecondViewController: UIViewController {
     
     @IBAction func stepperControl(_ sender: UIStepper) {
         self.counterLabel.text = String(sender.value)
+    }
+    
+    
+    @IBAction func switchOnOff(_ sender: UISwitch) {
+        
+        if sender.isOn {
+            self.switchLabel.backgroundColor = .orange
+        } else {
+            self.switchLabel.backgroundColor = .blue
+        }
     }
 }
